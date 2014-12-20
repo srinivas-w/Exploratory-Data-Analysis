@@ -42,6 +42,10 @@ aggregated.motor.zips$group <- as.factor(aggregated.motor.zips$group)
 
 colnames(aggregated.motor.zips) <- c("Year", "Emissions", "Group")
 
+png(filename='plot6.png')
+
 qplot(Year, Emissions, data = aggregated.motor.zips, group = Group, color = Group, 
     geom = c("point", "line"), ylab = expression("Total Emissions, PM"[2.5]), 
     xlab = "Year", main = "Comparison of Total Emissions by County")
+dev.off()
+

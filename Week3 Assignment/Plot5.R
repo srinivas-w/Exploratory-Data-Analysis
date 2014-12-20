@@ -14,7 +14,11 @@ NEI.motor.24510 <- NEI.motor[which(NEI.motor$fips == "24510"), ]
 aggregate.motor.24510 <- with(NEI.motor.24510, aggregate(Emissions, by = list(year), 
     sum))
 
+png(filename='plot5.png')
 plot(aggregate.motor.24510, type = "o", ylab = expression("Total Emissions, PM"[2.5]), 
     xlab = "Year", main = "Total Emissions from Motor Vehicle Sources")
+
+dev.off()
+
 
 

@@ -13,9 +13,13 @@ NEI.coal <- NEI[NEI$SCC %in% SCC.identifiers, ]
 aggregate.coal <- with(NEI.coal, aggregate(Emissions, by = list(year), sum))
 colnames(aggregate.coal) <- c("year", "Emissions")
 
+png(filename='plot4.png')
 plot(aggregate.coal, type = "o", ylab = expression("Total Emissions, PM"[2.5]), 
     xlab = "Year", main = "Emissions and Total Coal Combustion for the United States", 
     xlim = c(1999, 2008))
 polygon(aggregate.coal, col = "green", border = "red")
+
+dev.off()
+
 
 
